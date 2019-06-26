@@ -31,3 +31,9 @@ if [ == "Not logged in." ]; then
 fi
 lpass logout
 exit 0
+
+
+echo "30 9 * * * date >> /var/log/brew_auto_update.log && brew update --verbose >> /var/log/brew_auto_update.log && brew upgrade --verbose >> /var/log/brew_auto_update.log" > /tmp/matable
+echo "30 10 * * * date >> /var/log/mas_auto_update.log && mas upgrade >> /var/log/mas_auto_update.log" >> /tmp/matable
+crontab /tmp/matable
+rm /tmp/matable
