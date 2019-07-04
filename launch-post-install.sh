@@ -36,5 +36,6 @@ exit 0
 echo "30 9 * * * date >> /var/log/brew_auto_update.log && brew update --verbose >> /var/log/brew_auto_update.log && brew upgrade --verbose >> /var/log/brew_auto_update.log" > /tmp/matable
 echo "30 10 * * * date >> /var/log/mas_auto_update.log && mas upgrade >> /var/log/mas_auto_update.log" >> /tmp/matable
 echo "*/5 * * * * date >> /var/log/workspace_backup.log && gdrive sync upload --keep-local /Users/BENJAMIN/Workspace/* 1FeSKwf60nnl0sZFUQCoohbBMsFgw385h >> /var/log/workspace_backup.log" >> /tmp/matable
+echo "30 9 * * * mkdir $HOME/Downloads/wallpaper && curl https://raw.githubusercontent.com/thejandroman/bing-wallpaper/master/bing-wallpaper.sh --output /tmp/bing-wallpaper.sh && chmod +x  /tmp/bing-wallpaper.sh && /tmp/bing-wallpaper.sh -p $HOME/Downloads/wallpaper -n monimage.jpg -f" >> /tmp/matable
 crontab /tmp/matable
 rm /tmp/matable
